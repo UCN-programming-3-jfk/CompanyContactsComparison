@@ -5,9 +5,11 @@ namespace CompanyContacts.WinForms;
 
 public partial class MainForm : Form
 {
+    #region variables
     private List<Company> _companies;
-    private IComparer<Company> _comparer;
-    
+    private IComparer<Company> _comparer; 
+    #endregion
+
     #region Constructor and setup
     public MainForm()
     {
@@ -33,9 +35,10 @@ public partial class MainForm : Form
     private void LoadCompanies()
     {
         _companies = new CompanyDao().GetCompanies().ToList();
-    } 
+    }
     #endregion
 
+    #region Sort and show
     private void SortCompanies()
     {
         if (_comparer != null) { _companies.Sort(_comparer); }
@@ -46,6 +49,7 @@ public partial class MainForm : Form
     {
         lstCompanies.Items.Clear(); //remove existing companies
 
+        //add rows with fields that match the columns
         foreach (Company company in _companies)
         {
             var item = new ListViewItem(company.Id.ToString("00"));
@@ -53,15 +57,18 @@ public partial class MainForm : Form
             item.SubItems.Add(company.EmployeeCount.ToString("N0"));
             item.SubItems.Add(company.YearlyRevenue.ToString("C0"));
             item.SubItems.Add(company.IsCustomer ? "Yes" : "No");
-            if (company.IsCustomer)
+
+            if (company.IsCustomer) //customers have a green background
             {
                 item.BackColor = Color.LightGreen;
             }
 
             lstCompanies.Items.Add(item);
         }
+        //ensure a column width, which matches the header width
         lstCompanies.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-    }
+    } 
+    #endregion
 
     #region Eventhandling
     private void btnSortByName_Click(object sender, EventArgs e)
@@ -92,9 +99,10 @@ public partial class MainForm : Form
     private void btnIsCustomer_Click(object sender, EventArgs e)
     {
         SortByIsCustomerAndShow();
-    } 
+    }
     #endregion
 
+    #region IComparer retrieval methods
     private void SortByNameAndShow()
     {
         _comparer = null;   //remove comparer, so companies are sorted by IComparable (Name)
@@ -125,5 +133,7 @@ public partial class MainForm : Form
 
     private void SortByIsCustomerAndShow()
     {
-    }
+    } 
+    #endregion
+
 }

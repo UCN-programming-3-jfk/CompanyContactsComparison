@@ -10,7 +10,7 @@ public class CompanyDao
         {
             new Company("Nordic Solutions", 12500000, 85)
             {
-                Id = 1,
+                Id = 6,
                 LastContacted = new DateTime(2026, 8, 15),
                 IsCustomer = true
             },
@@ -22,37 +22,37 @@ public class CompanyDao
             },
             new Company("Greenfield Logistics", 23100000, 145)
             {
-                Id = 3,
+                Id = 8,
                 LastContacted = new DateTime(2026, 8, 3),
                 IsCustomer = true
             },
             new Company("Silverline Consulting", 3150000, 18)
             {
-                Id = 4,
+                Id = 5,
                 LastContacted = new DateTime(2026, 6, 11),
                 IsCustomer = false
             },
             new Company("OakTree Industries", 67200000, 420)
             {
-                Id = 5,
+                Id = 4,
                 LastContacted = new DateTime(2026, 8, 27),
                 IsCustomer = true
             },
             new Company("Sunrise Media", 8900000, 57)
             {
-                Id = 6,
+                Id = 12,
                 LastContacted = new DateTime(2026, 5, 19),
                 IsCustomer = false
             },
             new Company("Arctic Systems", 15400000, 73)
             {
-                Id = 7,
+                Id = 10,
                 LastContacted = new DateTime(2026, 8, 30),
                 IsCustomer = true
             },
             new Company("RedBridge Finance", 42300000, 210)
             {
-                Id = 8,
+                Id = 3,
                 LastContacted = new DateTime(2026, 7, 8),
                 IsCustomer = true
             },
@@ -64,7 +64,7 @@ public class CompanyDao
             },
             new Company("WestCo Manufacturing", 98700000, 680)
             {
-                Id = 10,
+                Id = 7,
                 LastContacted = new DateTime(2026, 8, 9),
                 IsCustomer = true
             },
@@ -76,7 +76,7 @@ public class CompanyDao
             },
             new Company("HarborPoint Energy", 35400000, 275)
             {
-                Id = 12,
+                Id = 1,
                 LastContacted = new DateTime(2026, 7, 31),
                 IsCustomer = true
             }

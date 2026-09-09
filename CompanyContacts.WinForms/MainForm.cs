@@ -115,7 +115,7 @@ public partial class MainForm : Form
     private void SortByIdAndShow()
     {
         //get a comparer which uses companies' Id for comparison
-        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.Id);
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.CompanyComparerType.Id);
         SortCompanies();
         ShowCompanies();
     }
@@ -124,7 +124,7 @@ public partial class MainForm : Form
     {
         //get a comparer which uses companies' last contacted date 
         // for comparison
-        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.LastContacted);
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.CompanyComparerType.LastContacted);
         SortCompanies();
         ShowCompanies();
     }
@@ -132,7 +132,7 @@ public partial class MainForm : Form
     private void SortByYearlyRevenueAndShow()
     {
         //get a comparer which uses companies' revenue for comparison
-        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.Revenue);
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.CompanyComparerType.Revenue);
         SortCompanies();
         ShowCompanies();
     }
@@ -141,7 +141,7 @@ public partial class MainForm : Form
     {
         //get a comparer which uses companies' employeecount
         // for comparison
-        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.EmployeeCount);
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.CompanyComparerType.EmployeeCount);
         SortCompanies();
         ShowCompanies();
     }
@@ -151,7 +151,7 @@ public partial class MainForm : Form
     {
         //get a comparer which uses companies' is customer property
         // for comparison
-        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.IsCustomer);
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.CompanyComparerType.IsCustomer);
         SortCompanies();
         ShowCompanies();
     } 

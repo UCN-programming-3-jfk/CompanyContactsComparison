@@ -1,6 +1,4 @@
-﻿using CompanyContacts.DAL.Comparers;
-
-namespace CompanyContacts.DAL;
+﻿namespace CompanyContacts.DAL.Comparers;
 
 public static class CompanyComparerFactory
 {
@@ -12,17 +10,15 @@ public static class CompanyComparerFactory
         switch (comparerType)
         {
             case FactoryComparer.Id:
-                return new FactoryIdComparer();
-            case FactoryComparer.Name:
-                return new FactoryIdComparer();
+                return new CompanyIdComparer();
             case FactoryComparer.EmployeeCount:
-                return new FactoryIdComparer();
+                return new CompanyEmployeeCountComparer();
             case FactoryComparer.Revenue:
-                return new FactoryIdComparer();
+                return new CompanyRevenueComparer();
             case FactoryComparer.LastContacted:
-                return new FactoryIdComparer();
+                return new CompanyLastContactedComparer();
             case FactoryComparer.IsCustomer:
-                return new FactoryIdComparer();
+                return new CompanyIsCustomerComparer();
             default:
                 return null;
         }

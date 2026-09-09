@@ -1,4 +1,5 @@
 using CompanyContacts.DAL;
+using CompanyContacts.DAL.Comparers;
 using CompanyContacts.DAO;
 
 namespace CompanyContacts.WinForms;

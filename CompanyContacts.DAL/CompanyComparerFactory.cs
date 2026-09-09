@@ -12,7 +12,7 @@ public static class CompanyComparerFactory
         switch (comparerType)
         {
             case FactoryComparer.Id:
-                return new FactoryIdComparer();
+                return new CompanyIdComparer();
             case FactoryComparer.Name:
                 return null;
             case FactoryComparer.EmployeeCount:

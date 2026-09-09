@@ -1,6 +1,6 @@
 ﻿namespace CompanyContacts.DAL.Comparers;
 
-internal class FactoryIdComparer : IComparer<Company>
+internal class CompanyIdComparer : IComparer<Company>
 {
     public int Compare(Company? first, Company? second)
     {

@@ -23,6 +23,7 @@ public partial class MainForm : Form
         lstCompanies.Columns.Add("Name", 200);
         lstCompanies.Columns.Add("Employees", 200);
         lstCompanies.Columns.Add("Revenue", 250);
+        lstCompanies.Columns.Add("Last contacted", 300);
         lstCompanies.Columns.Add("Customer", 150);
     }
 
@@ -56,6 +57,7 @@ public partial class MainForm : Form
             item.SubItems.Add(company.Name);
             item.SubItems.Add(company.EmployeeCount.ToString("N0"));
             item.SubItems.Add(company.YearlyRevenue.ToString("C0"));
+            item.SubItems.Add(company.LastContacted.ToString("yyyy-MM-dd"));
             item.SubItems.Add(company.IsCustomer ? "Yes" : "No");
 
             if (company.IsCustomer) //customers have a green background

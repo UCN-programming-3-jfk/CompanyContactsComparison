@@ -1,0 +1,129 @@
+using CompanyContacts.DAL;
+using CompanyContacts.DAO;
+
+namespace CompanyContacts.WinForms;
+
+public partial class MainForm : Form
+{
+    private List<Company> _companies;
+    private IComparer<Company> _comparer;
+    
+    #region Constructor and setup
+    public MainForm()
+    {
+        InitializeComponent();
+        CreateColumnsOnListBox();
+    }
+
+    private void CreateColumnsOnListBox()
+    {
+        lstCompanies.Columns.Add("Id", 50);
+        lstCompanies.Columns.Add("Name", 200);
+        lstCompanies.Columns.Add("Employees", 200);
+        lstCompanies.Columns.Add("Revenue", 250);
+        lstCompanies.Columns.Add("Customer", 150);
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        LoadCompanies();
+        ShowCompanies();
+    }
+
+    private void LoadCompanies()
+    {
+        _companies = new CompanyDao().GetCompanies().ToList();
+    } 
+    #endregion
+
+    private void SortCompanies()
+    {
+        if (_comparer != null) { _companies.Sort(_comparer); }
+        else { _companies.Sort(); }
+    }
+
+    private void ShowCompanies()
+    {
+        lstCompanies.Items.Clear(); //remove existing companies
+
+        foreach (Company company in _companies)
+        {
+            var item = new ListViewItem(company.Id.ToString("00"));
+            item.SubItems.Add(company.Name);
+            item.SubItems.Add(company.EmployeeCount.ToString("N0"));
+            item.SubItems.Add(company.YearlyRevenue.ToString("C0"));
+            item.SubItems.Add(company.IsCustomer ? "Yes" : "No");
+            if (company.IsCustomer)
+            {
+                item.BackColor = Color.LightGreen;
+            }
+
+            lstCompanies.Items.Add(item);
+        }
+        lstCompanies.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+    }
+
+    #region Eventhandling
+    private void btnSortByName_Click(object sender, EventArgs e)
+    {
+        SortByNameAndShow();
+    }
+
+    private void btnId_Click(object sender, EventArgs e)
+    {
+        SortByIdAndShow();
+    }
+
+    private void btnEmployeeCount_Click(object sender, EventArgs e)
+    {
+        SortByEmployeeCountAndShow();
+    }
+
+    private void btnYearlyRevenue_Click(object sender, EventArgs e)
+    {
+        SortByYearlyRevenueAndShow();
+    }
+
+    private void btnLastContacted_Click(object sender, EventArgs e)
+    {
+        SortByLastContactedAndShow();
+    }
+
+    private void btnIsCustomer_Click(object sender, EventArgs e)
+    {
+        SortByIsCustomerAndShow();
+    } 
+    #endregion
+
+    private void SortByNameAndShow()
+    {
+        _comparer = null;   //remove comparer, so companies are sorted by IComparable (Name)
+        SortCompanies();
+        ShowCompanies();
+    }
+
+    private void SortByIdAndShow()
+    {
+        //get a comparer which uses companies' Id for comparison
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.Id);
+        SortCompanies();
+        ShowCompanies();
+    }
+
+    private void SortByLastContactedAndShow()
+    {
+    }
+
+    private void SortByYearlyRevenueAndShow()
+    {
+    }
+
+    private void SortByEmployeeCountAndShow()
+    {
+    }
+
+
+    private void SortByIsCustomerAndShow()
+    {
+    }
+}

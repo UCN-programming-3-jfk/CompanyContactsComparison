@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CompanyContacts.DAL/CompanyContacts.DAL.csproj" />
+  <Project Path="CompanyContacts.WinForms/CompanyContacts.WinForms.csproj" />
+</Solution>

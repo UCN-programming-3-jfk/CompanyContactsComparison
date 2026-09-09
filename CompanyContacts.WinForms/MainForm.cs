@@ -120,19 +120,38 @@ public partial class MainForm : Form
 
     private void SortByLastContactedAndShow()
     {
+        //get a comparer which uses companies' last contacted date 
+        // for comparison
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.LastContacted);
+        SortCompanies();
+        ShowCompanies();
     }
 
     private void SortByYearlyRevenueAndShow()
     {
+        //get a comparer which uses companies' revenue for comparison
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.Revenue);
+        SortCompanies();
+        ShowCompanies();
     }
 
     private void SortByEmployeeCountAndShow()
     {
+        //get a comparer which uses companies' employeecount
+        // for comparison
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.EmployeeCount);
+        SortCompanies();
+        ShowCompanies();
     }
 
 
     private void SortByIsCustomerAndShow()
     {
+        //get a comparer which uses companies' is customer property
+        // for comparison
+        _comparer = CompanyComparerFactory.GetComparer(CompanyComparerFactory.FactoryComparer.IsCustomer);
+        SortCompanies();
+        ShowCompanies();
     } 
     #endregion
 

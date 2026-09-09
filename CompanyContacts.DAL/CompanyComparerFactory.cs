@@ -14,15 +14,15 @@ public static class CompanyComparerFactory
             case FactoryComparer.Id:
                 return new FactoryIdComparer();
             case FactoryComparer.Name:
-                return null;
+                return new FactoryIdComparer();
             case FactoryComparer.EmployeeCount:
-                return null;
+                return new FactoryIdComparer();
             case FactoryComparer.Revenue:
-                return null;
+                return new FactoryIdComparer();
             case FactoryComparer.LastContacted:
-                return null;
+                return new FactoryIdComparer();
             case FactoryComparer.IsCustomer:
-                return null;
+                return new FactoryIdComparer();
             default:
                 return null;
         }

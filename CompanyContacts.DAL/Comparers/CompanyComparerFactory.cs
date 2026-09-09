@@ -2,22 +2,22 @@
 
 public static class CompanyComparerFactory
 {
-    public enum CompanyComparer { None, Id, Name, EmployeeCount, Revenue, LastContacted,IsCustomer }
+    public enum CompanyComparerType { None, Id, Name, EmployeeCount, Revenue, LastContacted,IsCustomer }
 
 
-    public static IComparer<Company>? GetComparer(CompanyComparer comparerType)
+    public static IComparer<Company>? GetComparer(CompanyComparerType comparerType)
     {
         switch (comparerType)
         {
-            case CompanyComparer.Id:
+            case CompanyComparerType.Id:
                 return new CompanyIdComparer();
-            case CompanyComparer.EmployeeCount:
+            case CompanyComparerType.EmployeeCount:
                 return new CompanyEmployeeCountComparer();
-            case CompanyComparer.Revenue:
+            case CompanyComparerType.Revenue:
                 return new CompanyRevenueComparer();
-            case CompanyComparer.LastContacted:
+            case CompanyComparerType.LastContacted:
                 return new CompanyLastContactedComparer();
-            case CompanyComparer.IsCustomer:
+            case CompanyComparerType.IsCustomer:
                 return new CompanyIsCustomerComparer();
             default:
                 return null;

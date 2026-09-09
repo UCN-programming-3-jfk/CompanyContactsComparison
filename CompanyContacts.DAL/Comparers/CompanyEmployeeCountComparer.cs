@@ -2,8 +2,11 @@
 
 public class CompanyEmployeeCountComparer : IComparer<Company>
 {
-    public int Compare(Company? first, Company? second)
+    public int Compare(Company? x, Company? y)
     {
-        return first.EmployeeCount.CompareTo(second.EmployeeCount);
+        if (ReferenceEquals(x, y)) { return 0; }
+        if (x is null) { return -1; }
+        if (y is null) { return 1; }
+        return x.EmployeeCount.CompareTo(y.EmployeeCount);
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace CompanyContacts.DAL.Comparers;
 public class CompanyRevenueComparer : IComparer<Company>
 {
-    public int Compare(Company? x, Company? y)
+    public int Compare(Company? first, Company? second)
     {
-        if (ReferenceEquals(x, y)) { return 0; }
-        if (x is null) { return -1; }
-        if (y is null) { return 1; }
-        return x.YearlyRevenue.CompareTo(y.YearlyRevenue);
+        if (ReferenceEquals(first, second)) { return 0; }
+        if (first is null) { return -1; }
+        if (second is null) { return 1; }
+        return first.YearlyRevenue.CompareTo(second.YearlyRevenue);
     }
 }
